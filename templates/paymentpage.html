@@ -1,0 +1,31 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Payment
+{%endblock title%}
+{%block body%}
+{% load static %}
+<section class="booking">
+    <div class="con">
+        <form method="POST" class="form">
+            {% for field in form %}
+            {% csrf_token %}
+
+            <div class="input-group">
+                <h3>Flight Name: {{field.flight_name}}</h3>
+                <h3>Flight Number: {{field.flight_number}}</h3>
+                <h3>Flight Date: {{field.flight_date}}</h3>
+                <h3>Flight Time: {{field.flight_time}}</h3>
+                <h3>Price: {{field.ticket_price}}</h3>
+                <button type="submit" name="val" class="btn form-btn btn-m btn-purple">
+                    <span class="dots"><i class="fas fa ellipsis-h"><a href="/payment/{{field.id}}/'cash'" class="white-text">Cash Payment</a></i></span>
+                </button>
+                <button type="submit" name="val" class="btn form-btn btn-m btn-purple">
+                    <span class="dots"><i class="fas fa ellipsis-h"><a href="/payment/{{field.id}}/'E-payment'" class="white-text">E-payment</a></i></span>
+                </button>
+            </div>
+            {%endfor %}
+        </form>
+        
+    </div>
+</section>
+{%endblock body%}

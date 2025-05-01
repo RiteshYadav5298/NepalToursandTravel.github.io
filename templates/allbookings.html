@@ -1,0 +1,44 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Booking Details
+{%endblock title%}
+{%block body%}
+{% load static %}
+<section class="booking">
+    <div class="con">
+    <h2>Hotel Booking</h2>
+        {% for field in form %}
+            <div class="input-group">
+                <h3>Hotel Name: {{field.room.hotel.hotel_name}}</h3>
+                <h3>Room Number: {{field.room.hotel.number}}</h3>
+                <h3>Category: {{field.room.category}}</h3>
+                <h3>Check In: {{field.check_in}}</h3>
+                <h3>Check Out: {{field.check_out}}</h3>
+                <h3>Bed: {{field.room.beds}}</h3>
+                <h3>Price: {{field.room.price}}</h3>
+
+            </div>
+
+        </form>
+        {%endfor %}
+    </div>
+</section>
+    <hr>
+    <section class="booking">
+    <div class="con">
+    <h2>Flight Booking</h2>
+        {% for field in flightform %}
+            <div class="input-group">
+                <h3>Origin: {{field.flightdet.tickets.origin}}</h3>
+                <h3>Destination: {{field.flightdet.tickets.destination}}</h3>
+                <h3>Flight Name: {{field.flightdet.flight_name}}</h3>
+                <h3>Flight Number: {{field.flightdet.flight_number}}</h3>
+                <h3>Flight Date: {{field.flight_Date}}</h3>
+                <h3>Flight Time: {{field.flightdet.flight_time}}</h3>
+                <h3>Seat: {{field.flightdet.seat_number}}</h3>
+                <h3>Price: {{field.flightdet.ticket_price}}</h3>
+            </div>
+        {%endfor %}
+    </div>
+</section>
+{%endblock body%}

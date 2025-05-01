@@ -1,0 +1,50 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Hotel
+{%endblock title%}
+{%block body%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'hotel.css' %}" />
+
+<section class="booking">
+<style>
+
+    label{
+        margin-bottom: 10px;
+    }
+    select, input{
+        margin-left: 100px;
+        position: absolute;
+        height: 30px;
+    }
+</style>
+    <div class="con">
+        <form action="" method="POST" class="form">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="hotel" class="input-label">Hotel</label>
+                {{form.hotel_name}}
+            </div>
+            <div class="input-group">
+                <label for="category" class="input-label">Category</label>
+                {{form.room_category}}
+            </div>
+            
+            <div class="input-group">
+                <label for="Check-in" class="input-label">Check in</label>
+                {{form.check_in}}
+            </div>
+            <div class="input-group">
+                <label for="Check-out" class="input-label">Check out</label>
+                {{form.check_out}}
+            </div>
+            
+            
+            <button class="btn-purple">
+                <span class="dots"><i class="fas fa ellipsis-h">Search</i></span>
+            </button>
+            
+        </form>
+    </div>
+</section>
+{%endblock body%}

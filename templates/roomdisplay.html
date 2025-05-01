@@ -1,0 +1,27 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Hotel book
+{%endblock title%}
+{%block body%}
+{% load static %}
+<section class="booking">
+    <div class="con">
+        {% for field in form %}
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="input-group">
+                <h3>Hotel Name: {{field.hotel.hotel_name}}</h3>
+                <h3>Room Number: {{field.number}}</h3>
+                <h3>Category: {{field.category}}</h3>
+                <h3>Bed: {{field.beds}}</h3>
+                <h3>Price: {{field.price}}</h3>
+                <button type="submit" name="val" class="btn form-btn btn-m btn-purple">
+                    <span class="dots"><i class="fas fa ellipsis-h"><a href="/hotelbook/{{field.id}}/{{checkin}}/{{checkout}}/" class="white-text">Book Now</a></i></span>
+                </button>
+            </div>
+
+        </form>
+        {%endfor %}
+    </div>
+</section>
+{%endblock body%}

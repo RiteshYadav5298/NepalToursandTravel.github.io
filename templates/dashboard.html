@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css"
+          integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'footer.css' %}"/>
+    <script src="{% static 'responses.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+
+        li.fade a {
+            color: black;
+        }
+        a{
+            color: #000;
+        }
+        a.fade{
+            color: #0a0c13;
+            visibility: collapse;
+        }
+    </style>
+</head>
+
+<body>
+{% load static %}
+<nav>
+    <div class="logo">
+        <img src="{% static 'assets/logo.png' %}" alt="Logo Image">
+    </div>
+    <div class="hamburger">
+        <div class="bars1"></div>
+        <div class="bars2"></div>
+        <div class="bars3"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{{ homelink }}">Home</a></li>
+        <li><a href="{{ destinationlink }}">Destination</a></li>
+        <li><a href="{{ hotellink }}">Hotel</a></li>
+        <li><a href="{{ flightlink }}">Flight</a></li>
+        <li><a href="#">Services +</a>
+            <ul style="margin-top: 30px; height: 220px;">
+                <li style="margin-top: 15px;"><a href="{{ rentlink }}">Car Rent</a></li>
+                <li style="margin-top: 15px;"><a href="{{ guidelink }}">Tour Guide</a></li>
+                <li style="margin-top: 15px; "><a href="{{ numberlink }}">Emergency Number</a></li>
+                <li style="margin-top: 15px; "><a href="{{ weatherlink }}">Weather Forecasting</a></li>
+                <li style="margin-top: 15px; "><a href="{{ currencylink }}">Currency Converter</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ contactlink }}">Contact Us</a></li>
+        {% if request.user.is_authenticated %}
+            <button class="login-button"><a href="{{ bookdetaillink }}"> Bookings </a></button>
+            <button class="login-button"><a href="{{ logoutlink }}"> Logout </a></button>
+        {% else %}
+            <button class="login-button"><a href="{{ loginlink }}"> Sign In</a></button>
+        {% endif %}
+    </ul>
+</nav>
+{% block body %}
+{% endblock body %}
+
+
+<div class="chat-bar-collapsible">
+    <button id="chat-button" type="button" class="collapsible active">Chat with us!
+        <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+    </button>
+
+    <div class="simple">
+        <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+                <div class="chat-container">
+                    <!-- Messages -->
+                    <div id="chatbox">
+                        <h5 id="chat-timestamp"></h5>
+                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                    </div>
+
+                    <!-- User input box -->
+                    <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <input id="textInput" class="input-box" type="text" name="msg"
+                                   placeholder="Tap 'Enter' to send a message">
+                            <p></p>
+                        </div>
+
+                        <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                        </div>
+                    </div>
+
+                    <div id="chat-bar-bottom">
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="{{ homelink }}">Home</a>
+            <a href="{{ hotellink }}">Hotel</a>
+            <a href="{{ flightlink }}">Flight</a>
+            <a href="{{ destinationlink }}">Destinations</a>
+            <a href="{{ rentlink }}">Rent</a>
+            <a href="{{ guidelink }}">Guide</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="{{ numberlink }}">emergency number</a>
+            <a href="{{ weatherlink }}">weather forecast</a>
+            <a href="{{ contactlink }}">ask questions</a>
+
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +977-9807813322 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> nepaltourandtravels11@gmail.com </a>
+            <a href="#"> <i class="fas fa-map"></i> Kathmandu, Nepal</a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+        </div>
+    </div>
+    <div class="credit">created by <span>Nepal Tour & Travels</span> | all rights reserved!</div>
+</section>
+</section>
+
+<script>
+    // Collapsible
+var coll = document.getElementsByClassName("collapsible");
+
+for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+
+    });
+}
+
+function getTime() {
+    let today = new Date();
+    hours = today.getHours();
+    minutes = today.getMinutes();
+
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    let time = hours + ":" + minutes;
+    return time;
+}
+
+// Gets the first message
+function firstBotMessage() {
+    let firstMessage = "How's it going?"
+    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+
+    let time = getTime();
+
+    $("#chat-timestamp").append(time);
+    document.getElementById("userInput").scrollIntoView(false);
+}
+
+firstBotMessage();
+
+// Retrieves the response
+function getHardResponse(userText) {
+    let botResponse = getBotResponse(userText);
+    let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+    $("#chatbox").append(botHtml);
+
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+}
+
+//Gets the text text from the input box and processes it
+function getResponse() {
+    let userText = $("#textInput").val();
+
+    if (userText == "") {
+        userText = "How can i help you!";
+    }
+
+    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+
+    setTimeout(() => {
+        getHardResponse(userText);
+    }, 1000)
+
+}
+
+// Handles sending text via button clicks
+function buttonSendText(sampleText) {
+    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+}
+
+function sendButton() {
+    getResponse();
+}
+
+
+// Press enter to send a message
+$("#textInput").keypress(function (e) {
+    if (e.which == 13) {
+        getResponse();
+    }
+});
+</script>
+
+<script src="{% static 'app.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'chat.css' %}"/>
+</body>
+
+</html>

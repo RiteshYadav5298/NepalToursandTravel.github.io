@@ -1,0 +1,171 @@
+{% extends 'dashboard.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block body %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}"/>
+    <section class="hero">
+        <div class="banner">
+            <div class="bg">
+                <img src="{% static 'assets/bg4.jpg' %}" class="cover">
+                <div class="content">
+                    <h2>Explore The Nepal</h2>
+                </div>
+                <div class="searchBox">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="inputBox">
+                            <p>Enter Destination</p>
+                            {{ form.place }}
+                        </div>
+
+                        <div class="inputBox">
+                            <p class="white">_</p>
+                            <input type="submit" value="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if forms %}
+        <h1 class="heading">Searched Destination</h1>
+
+        <section class="packages" id="packages">
+
+            <div class="box-container">
+                {% for fields in forms %}
+                    <div class="box">
+                        <div class="image">
+                            <img src="{% static 'assets/janki.jpg' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>{{ fields.place }}</h3>
+                            <p> {{ fields.description }}</p>
+
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+    {% endif %}
+    <section class="packages" id="packages">
+        <h1 class="heading">Featured Destination</h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/janki.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Janki Mandir, Janakpur</h3>
+                    <p>Janaki Mandir is one of the greatest pilgrimage sites for Hindus in Nepal. Situated in the heart
+                        of
+                        Janakpur, this temple has a huge religious and cultural importance. </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/kathmandu.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Swayambhunath Stupa, Kathmandu</h3>
+                    <p>Swayambhunath Stupa, also known as “Monkey Temple” is located on the hilltop in the Northwest of
+                        Kathmandu Valley. It is a peaceful place where the beautiful panoramic view of the Kathmandu
+                        city
+                        can be observed.</p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/pokhara.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Lakeside, pokhara</h3>
+                    <p>he Lakeside Retreat Pokhara is an ideal place for peace and relaxation just a short walk from the
+                        banks of Phewa lake. </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/buddha.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Boudha Stupa, Kathmandu</h3>
+                    <p>Boudhanath is the largest stupa in Nepal which was probably built during the 14th century after
+                        the
+                        Mughal invasions.</p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/pashupati.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Pashupati Nath, Kathmandu</h3>
+                    <p>One of the most sacred Hindu temples of Nepal – Pashupatinath Temple is located on both banks of
+                        Bagmati River on the eastern outskirts of Kathmandu. Pashupatinath is the most important temple
+                        dedicated to god Shiva. </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/lumbini.jpg' %}" alt="">
+                </div>
+                <div class="content">
+                    <h3>Lumbini Temple, Lumbini</h3>
+                    <p>Lumbini, Nepal
+                        Lumbini is the birthplace of Lord Buddha, one of the revered figures of history and the founder
+                        of
+                        Buddhism. Today, it is an important tourism destination among Buddhist pilgrims.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonials------------------->
+    <section id="testimonials">
+        <!--heading--->
+        <div class="testimonial-heading">
+            <h1>Clients Reviews</h1>
+        </div>
+        <!--testimonials-box-container------>
+        <div class="testimonial-box-container">
+            <!--BOX-1-------------->
+            {% for fields in feedbackform %}
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+
+                        <div class="name-user">
+                            <strong>{{ fields.user.FirstName}}  {{fields.user.LastName }}</strong>
+                            <span>{{ fields.user.useremail.email }}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>{{ fields.message }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock body %}

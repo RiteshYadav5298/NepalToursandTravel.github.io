@@ -1,0 +1,41 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Currency
+{%endblock title%}
+{%block body%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'currency.css'%}" />
+<section class="conveter">
+    <div class="wrapper">
+        <div class="col">
+            <div class="text">Currency Converter</div>
+            <div class="s6">
+                <div class="sm">Enter Amount</div>
+                <input type="number" value="1" id="Amount">
+                <div class="transfer">
+                    <select class="select-text">
+                        <option selected disabled>From</option>
+                    </select>
+                    <div class="icon">
+                        <span class="bx bx-transfer"></span>
+                    </div>
+                    <select class="select-text">
+                        <option selected disabled>To</option>
+                    </select>
+                </div>
+                <div class="s2">
+                    <div class="conversion"></div>
+                    <div class="messages"></div>
+                </div>
+                <div class="button11">
+                    <button class="btn11">Convert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer section ends -->
+<script src="{% static 'currency.js' %}"></script>
+{%endblock body%}

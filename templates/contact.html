@@ -1,0 +1,81 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Contact
+{%endblock title%}
+{%block body%}
+    {% load static %}
+<section class="contact">
+<div class="container">
+ <div class="row"> 
+  <div class="container">
+    {% load static %}
+      <link rel="stylesheet" href="{% static 'contact.css' %}" />
+    <div class="form ">
+      <div class="contact-info">
+        <h3 class="title">Get in Touch</h3>
+        
+
+        <div class="info">
+          <div class="information">
+            <img src="{% static 'assets/locatio.png' %}" class="icon" alt="" />
+            <p>Kathmandu, Nepal</p>
+          </div>
+          <div class="information">
+            <img src="{% static 'assets/emai.svg' %}" class="icon" alt="" />
+            <p>nepaltourandtravels11@gmail.com</p>
+          </div>
+          <div class="information">
+            <img src="{% static 'assets/phone-call.png' %}" class="icon" alt="" />
+            <p>9807813322</p>
+          </div>
+        </div>
+
+        <div class="social-media">
+          <p>Connect with us :</p>
+          <div class="social-icons">
+            <a href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+          <form action="https://formspree.io/f/myyojyav" method="POST">
+              
+          <h3 class="title">Contact us</h3>
+          <div class="input-container">
+            <input type="text" name="name" id = "Name" class="input" />
+            <label for="">Full Name</label>
+            <span>Full Name</span>
+          </div>
+          <div class="input-container">
+            <input type="email" name="email" id = "Email" class="input" />
+            <label for="">Email</label>
+            <span>Email</span>
+          </div>
+          <div class="input-container">
+            <input type="tel" name="phone" id = "Phone" class="input" />
+            <label for="">Phone</label>
+            <span>Phone</span>
+          </div>
+          <div class="input-container textarea">
+            <textarea name="message" id = "Message" class="input"></textarea>
+            <label for="">Message</label>
+            <span>Message</span>
+          </div>
+          <input type="submit" value="Send" class="btn" />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{%endblock body%}
+    
+

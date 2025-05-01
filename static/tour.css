@@ -1,0 +1,86 @@
+::selection{
+  background: #8e44ad;
+  color: #fff;
+}
+.guide{
+  /*padding: 12px;*/
+  margin-top: 140px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: "open sans", sans-serif;
+  font-size: 2rem;
+}
+
+.container{
+  margin: auto;
+  border: 3px solid #25b8dd;
+  padding: 20px;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.container .box{
+  width: calc(33% - 10px);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border: 2px solid red;
+  margin-bottom: 12px;
+}
+.box .quote i{
+margin-top: 10px;
+font-size: 45px;
+color: #17c0eb
+}
+.container .box .image{
+  margin: 10px 0;
+  height: 150px;
+  width: 150px;
+  background: #6beef3;
+  padding: 3px;
+  border-radius: 50%;
+}
+.box .image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+.box p{
+  text-align: justify;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.box .name_job{
+  margin: 10px 0 3px 0;
+  color: #943ce7;
+  font-size: 18px;
+  font-weight: 600;
+}
+.rating i{
+  font-size: 18px;
+  color: orange;
+  margin-bottom: 5px;
+}
+
+@media (max-width:1045px){
+  .container .box{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+}
+@media (max-width:710px){
+  .container .box{
+    width: 100%;
+  }
+}

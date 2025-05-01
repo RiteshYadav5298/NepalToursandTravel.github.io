@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+{% block title %}
+    Guide
+{% endblock title %}
+{% block body %}
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'tour.css' %}"/>
+
+    <div class="guide">
+        <h2>Tour Guide</h2>
+    </div>
+    <div class="container">
+        {% for fields in form %}
+            <div class="box">
+                <div class="image">
+                    <img src="{% static 'assets/16.png' %}">
+                </div>
+                <div class="name_job">{{ fields.agentsnames }}</div>
+
+                <p>Address:- {{ fields.agentsAddress }}</p>
+                <p>Gmail:- {{ fields.agentEmail }}</p>
+                <p>Number:- {{ fields.agentsContact }}</p>
+                <p>Price Per Hour: {{ fields.agentPrice }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock body %}

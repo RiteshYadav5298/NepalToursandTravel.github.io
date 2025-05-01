@@ -1,0 +1,98 @@
+ .text{
+     margin-bottom: 100px;;
+ } 
+  
+  .select-text{
+    color: #000;
+  }
+  
+  .wrapper{
+      width: 100%;
+      max-width: 700px;
+      padding: 35px;
+      background: rgb(245, 119, 119);
+      border-radius: 8px;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 40px;
+  }
+  .wrapper::before{
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f7b7b7;
+  }
+   .wrapper .col .text{
+      font-size: 30px;
+      text-align: center;
+      font-weight: 530;
+  }
+  .wrapper .col .s6{
+      margin-top: 30px;
+  }
+  .wrapper .col .s6 .sm{
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      padding-left: 2px;
+  }
+  .wrapper .col .s6 input{
+      width: 100%;
+      height: 45px;
+      border: 2px solid #b14f4f;
+      outline: none;
+      border-radius: 4px;
+      padding-left: 10px;
+      font-size: 18px;
+      transition: all 0.4s ease;
+  }
+  .wrapper .col .s6 input:focus{
+      border-color: #33e0e6;
+  }
+  .wrapper .col .s6 .transfer{
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+  }
+  .wrapper .col .s6 .transfer .icon span{
+      font-size: 30px;
+      color: #2f3542;
+  }
+  .wrapper .col .s6 .transfer .select-text{
+      width: 90px;
+      height: 35px;
+      padding-left: 6px;
+      outline: none;
+      border: 2px solid #b14f4f;
+      border-radius: 5px;
+  }
+  .wrapper .col .s6 .transfer .select-text:focus{
+      border-color: #33e0e6;
+  }
+  .wrapper .col .s6 .button{
+      margin-top: 20px;
+  }
+  .wrapper .col .s6 .button11 .btn11{
+      width: 100%;
+      height: 45px;
+      background: #3ea9b1;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      color: rgb(12, 11, 11);
+      border-radius: 3px;
+      cursor: pointer;
+  }
+  .wrapper .col .s6 .s2{
+      margin-top: 20px;
+  }
+  .wrapper .col .s6 .s2 .conversion{
+      font-size: 25px;
+  }
+  
+  

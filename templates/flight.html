@@ -1,0 +1,74 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Flight
+{%endblock title%}
+{%block body%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'flight.css' %}" />
+<section class="booking">
+<style>
+
+    label{
+        margin-bottom: 10px;
+    }
+    select, input{
+        margin-left: 100px;
+        position: absolute;
+        height: 30px;
+    }
+</style>
+    <div class="con">
+        <form method="POST" class="form">
+   
+            {% csrf_token %}
+            
+            <div class="input-group">
+                <label for="destination" class="input-label">Origin</label>
+                {{ form.origin }}  
+            </div>
+           
+            <div class="input-group">
+                <label for="destination" class="input-label">Destination</label>
+                {{form.destination}}
+            </div>
+
+            <div class="input-group">
+                <label for="Departure" class="input-label">Departure</label>
+                {{form.departure_date}}
+            </div>
+            
+            <div class="input-group">
+                <label for="adults" class="input-label">Adults</label>
+                {{form.adult}}
+
+            </div>
+            <button class="btn form-btn btn-purple">
+                <span class="dots"><i class="fas fa ellipsis-h">Search</i></span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<script src="{% static 'app.js' %}"></script>
+<script>
+    var selectField = document.getElementById("selectField");
+    var selectText = document.getElementById("selectText");
+    var option = document.getElementsByClassName("option");
+    var list = document.getElementById("list");
+    var arrowIcon = document.getElementById("arrowIcon");
+
+    selectField.onclick = function () {
+        list.classList.toggle("hide");
+        arrowIcon.classList.toggle("rotate");
+    }
+
+    for (options of option) {
+        options.onclick = function () {
+            selectText.innerHTML = this.textContent;
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        }
+    }
+
+</script>
+{%endblock body%}

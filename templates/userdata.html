@@ -1,0 +1,28 @@
+{% extends 'dashboard.html' %}
+{%block title%}
+Home
+{%endblock title%}
+{%block body%}
+{% load static %}
+<section class="conveter">
+    <div class="container">
+        <div class="forms-container">
+            <label for="show" class="close-btn fas fa-times"></label>
+            <div class="Login-Register">
+                    <form method="POST" class="sign-in-form">
+                        {% csrf_token %}
+                        {% for fields in form %}
+                        <div class="input-group">
+                            <label for="destination" class="input-label">{{fields.label_tag}}</label>
+                            {{ fields }}
+                        </div>
+                        {%endfor %}
+                        <button>Register</button>
+                    </form>
+                    
+                
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock body%}

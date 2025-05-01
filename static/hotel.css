@@ -1,0 +1,52 @@
+.booking{
+    background-color: #67a6b4;
+    margin-top: 3rem;
+  }
+
+.con{
+    display: flex;
+}
+  
+.input{
+    color: #0d7188;
+}
+  
+.input-group{
+    margin-bottom: 1.5rem;
+    margin-left: 35%;
+}
+  
+.input-label{
+    display: block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 1rem;
+}
+  
+.input, .option{
+    outline: none;
+    border: none;
+    width: 40%;
+    padding: 1rem;
+    font-weight: bold;
+    color: #141414;
+    letter-spacing: 2px;
+    font-family: "open sans", sans-serif;
+}
+    
+.btn-purple{
+  margin-left: 35%;
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.btn-purple:hover{
+    background-color: #4CAF50;
+}
+  
